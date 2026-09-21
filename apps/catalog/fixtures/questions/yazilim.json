@@ -1,0 +1,492 @@
+{
+  "category": {
+    "slug": "yazilim",
+    "name": "Yazılım",
+    "description": "Diller, algoritmalar, araçlar",
+    "color_hex": "#6C4DFF",
+    "icon": "code",
+    "display_order": 1
+  },
+  "questions": [
+    {
+      "external_ref": "yazilim-001",
+      "text": "HTTP'de 404 durum kodu ne anlama gelir?",
+      "difficulty": 1,
+      "explanation": "404 Not Found, istenen kaynağın sunucuda bulunamadığını belirtir.",
+      "options": [
+        {
+          "text": "İstenen kaynak bulunamadı",
+          "is_correct": true
+        },
+        {
+          "text": "İstek başarıyla tamamlandı",
+          "is_correct": false
+        },
+        {
+          "text": "Sunucu iç hatası oluştu",
+          "is_correct": false
+        },
+        {
+          "text": "Yetkilendirme gerekli",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yazilim-002",
+      "text": "Sıralı bir dizide ikili aramanın (binary search) zaman karmaşıklığı nedir?",
+      "difficulty": 2,
+      "explanation": "Her adımda arama aralığı yarıya indiği için O(log n)'dir.",
+      "options": [
+        {
+          "text": "O(log n)",
+          "is_correct": true
+        },
+        {
+          "text": "O(n)",
+          "is_correct": false
+        },
+        {
+          "text": "O(n log n)",
+          "is_correct": false
+        },
+        {
+          "text": "O(1)",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yazilim-003",
+      "text": "Git'te çalışma dizinindeki değişiklikleri commit etmeden geçici olarak saklayan komut hangisidir?",
+      "difficulty": 2,
+      "explanation": "git stash değişiklikleri bir yığına kaydeder; git stash pop ile geri alınır.",
+      "options": [
+        {
+          "text": "git stash",
+          "is_correct": true
+        },
+        {
+          "text": "git revert",
+          "is_correct": false
+        },
+        {
+          "text": "git rebase",
+          "is_correct": false
+        },
+        {
+          "text": "git clean",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yazilim-004",
+      "text": "Python'da değiştirilemez (immutable) sıralı veri tipi hangisidir?",
+      "difficulty": 1,
+      "explanation": "tuple oluşturulduktan sonra elemanları değiştirilemez.",
+      "options": [
+        {
+          "text": "tuple",
+          "is_correct": true
+        },
+        {
+          "text": "list",
+          "is_correct": false
+        },
+        {
+          "text": "dict",
+          "is_correct": false
+        },
+        {
+          "text": "set",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yazilim-005",
+      "text": "HTML kısaltmasının açılımı nedir?",
+      "difficulty": 1,
+      "explanation": "HTML, HyperText Markup Language'in kısaltmasıdır.",
+      "options": [
+        {
+          "text": "HyperText Markup Language",
+          "is_correct": true
+        },
+        {
+          "text": "HighText Machine Language",
+          "is_correct": false
+        },
+        {
+          "text": "HyperTool Markup Language",
+          "is_correct": false
+        },
+        {
+          "text": "HyperText Modern Language",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yazilim-006",
+      "text": "SQL'de bir tablodan veri okumak için kullanılan komut hangisidir?",
+      "difficulty": 1,
+      "explanation": "SELECT sorgusu tablodan satırları okur.",
+      "options": [
+        {
+          "text": "SELECT",
+          "is_correct": true
+        },
+        {
+          "text": "INSERT",
+          "is_correct": false
+        },
+        {
+          "text": "UPDATE",
+          "is_correct": false
+        },
+        {
+          "text": "DELETE",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yazilim-007",
+      "text": "Son giren ilk çıkar (LIFO) mantığıyla çalışan veri yapısı hangisidir?",
+      "difficulty": 1,
+      "explanation": "Yığında en son eklenen eleman ilk çıkarılır.",
+      "options": [
+        {
+          "text": "Yığın (stack)",
+          "is_correct": true
+        },
+        {
+          "text": "Kuyruk (queue)",
+          "is_correct": false
+        },
+        {
+          "text": "Bağlı liste",
+          "is_correct": false
+        },
+        {
+          "text": "Hash tablosu",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yazilim-008",
+      "text": "JavaScript'te hem değeri hem tipi karşılaştıran operatör hangisidir?",
+      "difficulty": 1,
+      "explanation": "=== katı eşitliktir; tip dönüşümü yapmadan karşılaştırır.",
+      "options": [
+        {
+          "text": "===",
+          "is_correct": true
+        },
+        {
+          "text": "==",
+          "is_correct": false
+        },
+        {
+          "text": "=",
+          "is_correct": false
+        },
+        {
+          "text": "!=",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yazilim-009",
+      "text": "REST API'lerde yeni bir kaynak oluşturmak için tipik olarak hangi HTTP metodu kullanılır?",
+      "difficulty": 2,
+      "explanation": "POST, sunucuda yeni bir kaynak oluşturmak için kullanılır.",
+      "options": [
+        {
+          "text": "POST",
+          "is_correct": true
+        },
+        {
+          "text": "GET",
+          "is_correct": false
+        },
+        {
+          "text": "HEAD",
+          "is_correct": false
+        },
+        {
+          "text": "OPTIONS",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yazilim-010",
+      "text": "Nesne yönelimli programlamada bir sınıfın başka bir sınıfın özelliklerini devralmasına ne denir?",
+      "difficulty": 1,
+      "explanation": "Kalıtımda alt sınıf, üst sınıfın alan ve metotlarını devralır.",
+      "options": [
+        {
+          "text": "Kalıtım (inheritance)",
+          "is_correct": true
+        },
+        {
+          "text": "Kapsülleme",
+          "is_correct": false
+        },
+        {
+          "text": "Soyutlama",
+          "is_correct": false
+        },
+        {
+          "text": "Çok biçimlilik",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yazilim-011",
+      "text": "Quicksort algoritmasının en kötü durum zaman karmaşıklığı nedir?",
+      "difficulty": 3,
+      "explanation": "Pivot sürekli en küçük/en büyük eleman seçilirse O(n²)'ye düşer.",
+      "options": [
+        {
+          "text": "O(n²)",
+          "is_correct": true
+        },
+        {
+          "text": "O(n log n)",
+          "is_correct": false
+        },
+        {
+          "text": "O(n)",
+          "is_correct": false
+        },
+        {
+          "text": "O(log n)",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yazilim-012",
+      "text": "Git'te uzak depodaki değişiklikleri çekip mevcut dala birleştiren komut hangisidir?",
+      "difficulty": 2,
+      "explanation": "git pull, git fetch ve ardından git merge işlemini birlikte yapar.",
+      "options": [
+        {
+          "text": "git pull",
+          "is_correct": true
+        },
+        {
+          "text": "git fetch",
+          "is_correct": false
+        },
+        {
+          "text": "git push",
+          "is_correct": false
+        },
+        {
+          "text": "git clone",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yazilim-013",
+      "text": "HTTPS varsayılan olarak hangi portu kullanır?",
+      "difficulty": 2,
+      "explanation": "HTTPS 443, HTTP ise 80 numaralı portu kullanır.",
+      "options": [
+        {
+          "text": "443",
+          "is_correct": true
+        },
+        {
+          "text": "80",
+          "is_correct": false
+        },
+        {
+          "text": "8080",
+          "is_correct": false
+        },
+        {
+          "text": "22",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yazilim-014",
+      "text": "JSON kısaltmasının açılımı nedir?",
+      "difficulty": 2,
+      "explanation": "JSON, JavaScript Object Notation'ın kısaltmasıdır.",
+      "options": [
+        {
+          "text": "JavaScript Object Notation",
+          "is_correct": true
+        },
+        {
+          "text": "Java Serialized Object Name",
+          "is_correct": false
+        },
+        {
+          "text": "JavaScript Online Node",
+          "is_correct": false
+        },
+        {
+          "text": "Java Standard Output Network",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yazilim-015",
+      "text": "Python'da fonksiyon tanımlamak için hangi anahtar kelime kullanılır?",
+      "difficulty": 1,
+      "explanation": "Python'da fonksiyonlar def anahtar kelimesiyle tanımlanır.",
+      "options": [
+        {
+          "text": "def",
+          "is_correct": true
+        },
+        {
+          "text": "function",
+          "is_correct": false
+        },
+        {
+          "text": "func",
+          "is_correct": false
+        },
+        {
+          "text": "fun",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yazilim-016",
+      "text": "Bir sınıftan yalnızca tek bir örnek oluşturulmasını garanti eden tasarım deseni hangisidir?",
+      "difficulty": 2,
+      "explanation": "Singleton deseni, sınıfın tek bir örneğe sahip olmasını sağlar.",
+      "options": [
+        {
+          "text": "Singleton",
+          "is_correct": true
+        },
+        {
+          "text": "Factory",
+          "is_correct": false
+        },
+        {
+          "text": "Observer",
+          "is_correct": false
+        },
+        {
+          "text": "Decorator",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yazilim-017",
+      "text": "\"Kaynak başarıyla oluşturuldu\" anlamına gelen HTTP durum kodu hangisidir?",
+      "difficulty": 2,
+      "explanation": "201 Created, isteğin yeni bir kaynak oluşturduğunu belirtir.",
+      "options": [
+        {
+          "text": "201",
+          "is_correct": true
+        },
+        {
+          "text": "200",
+          "is_correct": false
+        },
+        {
+          "text": "204",
+          "is_correct": false
+        },
+        {
+          "text": "301",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yazilim-018",
+      "text": "SOLID prensiplerinde \"L\" harfi hangi ilkeyi temsil eder?",
+      "difficulty": 3,
+      "explanation": "L, Liskov Substitution Principle'dır: alt sınıflar üst sınıfın yerine kullanılabilmelidir.",
+      "options": [
+        {
+          "text": "Liskov Yerine Geçme İlkesi",
+          "is_correct": true
+        },
+        {
+          "text": "Arayüz Ayrımı İlkesi",
+          "is_correct": false
+        },
+        {
+          "text": "Tek Sorumluluk İlkesi",
+          "is_correct": false
+        },
+        {
+          "text": "Bağımlılığı Tersine Çevirme",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yazilim-019",
+      "text": "Bir hash tablosunda arama işleminin ortalama zaman karmaşıklığı nedir?",
+      "difficulty": 3,
+      "explanation": "İyi bir hash fonksiyonuyla ortalama arama sabit zamanda yapılır.",
+      "options": [
+        {
+          "text": "O(1)",
+          "is_correct": true
+        },
+        {
+          "text": "O(log n)",
+          "is_correct": false
+        },
+        {
+          "text": "O(n)",
+          "is_correct": false
+        },
+        {
+          "text": "O(n log n)",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yazilim-020",
+      "text": "Dijkstra algoritması ağırlıklı bir grafta neyi bulur?",
+      "difficulty": 3,
+      "explanation": "Dijkstra, negatif olmayan ağırlıklı graflarda tek kaynaktan en kısa yolları bulur.",
+      "options": [
+        {
+          "text": "Bir düğümden en kısa yolları",
+          "is_correct": true
+        },
+        {
+          "text": "Minimum kapsayan ağacı",
+          "is_correct": false
+        },
+        {
+          "text": "Graftaki döngüleri",
+          "is_correct": false
+        },
+        {
+          "text": "En uzun yolu",
+          "is_correct": false
+        }
+      ]
+    }
+  ]
+}

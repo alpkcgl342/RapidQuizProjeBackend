@@ -1,0 +1,492 @@
+{
+  "category": {
+    "slug": "ulkeler",
+    "name": "Ülkeler",
+    "description": "Başkentler, bayraklar, coğrafya",
+    "color_hex": "#FF8A3D",
+    "icon": "globe",
+    "display_order": 4
+  },
+  "questions": [
+    {
+      "external_ref": "ulkeler-001",
+      "text": "Avustralya'nın başkenti hangi şehirdir?",
+      "difficulty": 1,
+      "explanation": "En büyük şehir Sydney olsa da başkent Canberra'dır.",
+      "options": [
+        {
+          "text": "Canberra",
+          "is_correct": true
+        },
+        {
+          "text": "Sydney",
+          "is_correct": false
+        },
+        {
+          "text": "Melbourne",
+          "is_correct": false
+        },
+        {
+          "text": "Brisbane",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "ulkeler-002",
+      "text": "Yüzölçümü bakımından dünyanın en büyük ülkesi hangisidir?",
+      "difficulty": 1,
+      "explanation": "Rusya yaklaşık 17 milyon km² ile en büyük ülkedir.",
+      "options": [
+        {
+          "text": "Rusya",
+          "is_correct": true
+        },
+        {
+          "text": "Kanada",
+          "is_correct": false
+        },
+        {
+          "text": "Çin",
+          "is_correct": false
+        },
+        {
+          "text": "ABD",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "ulkeler-003",
+      "text": "Birleşmiş Milletler üyesi ülkeler arasında bayrağı kare şeklinde olan tek ülke hangisidir?",
+      "difficulty": 3,
+      "explanation": "Kare bayraklı diğer devlet Vatikan'dır ancak BM üyesi değildir.",
+      "options": [
+        {
+          "text": "İsviçre",
+          "is_correct": true
+        },
+        {
+          "text": "Nepal",
+          "is_correct": false
+        },
+        {
+          "text": "Avusturya",
+          "is_correct": false
+        },
+        {
+          "text": "Belçika",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "ulkeler-004",
+      "text": "Japonya'nın başkenti hangi şehirdir?",
+      "difficulty": 1,
+      "explanation": "Japonya'nın başkenti Tokyo'dur.",
+      "options": [
+        {
+          "text": "Tokyo",
+          "is_correct": true
+        },
+        {
+          "text": "Kyoto",
+          "is_correct": false
+        },
+        {
+          "text": "Osaka",
+          "is_correct": false
+        },
+        {
+          "text": "Yokohama",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "ulkeler-005",
+      "text": "Kanada'nın başkenti hangi şehirdir?",
+      "difficulty": 1,
+      "explanation": "Kanada'nın başkenti Ontario eyaletindeki Ottawa'dır.",
+      "options": [
+        {
+          "text": "Ottawa",
+          "is_correct": true
+        },
+        {
+          "text": "Toronto",
+          "is_correct": false
+        },
+        {
+          "text": "Montreal",
+          "is_correct": false
+        },
+        {
+          "text": "Vancouver",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "ulkeler-006",
+      "text": "Brezilya'nın resmî dili hangisidir?",
+      "difficulty": 1,
+      "explanation": "Brezilya, Portekiz sömürgesi olduğu için Portekizce konuşur.",
+      "options": [
+        {
+          "text": "Portekizce",
+          "is_correct": true
+        },
+        {
+          "text": "İspanyolca",
+          "is_correct": false
+        },
+        {
+          "text": "Fransızca",
+          "is_correct": false
+        },
+        {
+          "text": "İtalyanca",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "ulkeler-007",
+      "text": "Eyfel Kulesi hangi ülkededir?",
+      "difficulty": 1,
+      "explanation": "Eyfel Kulesi Paris'tedir.",
+      "options": [
+        {
+          "text": "Fransa",
+          "is_correct": true
+        },
+        {
+          "text": "Belçika",
+          "is_correct": false
+        },
+        {
+          "text": "İtalya",
+          "is_correct": false
+        },
+        {
+          "text": "İsviçre",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "ulkeler-008",
+      "text": "Mısır'ın başkenti hangi şehirdir?",
+      "difficulty": 1,
+      "explanation": "Mısır'ın başkenti Kahire'dir.",
+      "options": [
+        {
+          "text": "Kahire",
+          "is_correct": true
+        },
+        {
+          "text": "İskenderiye",
+          "is_correct": false
+        },
+        {
+          "text": "Gize",
+          "is_correct": false
+        },
+        {
+          "text": "Luksor",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "ulkeler-009",
+      "text": "Yüzölçümü bakımından dünyanın en küçük ülkesi hangisidir?",
+      "difficulty": 1,
+      "explanation": "Vatikan yaklaşık 0,44 km² ile en küçük ülkedir.",
+      "options": [
+        {
+          "text": "Vatikan",
+          "is_correct": true
+        },
+        {
+          "text": "Monako",
+          "is_correct": false
+        },
+        {
+          "text": "San Marino",
+          "is_correct": false
+        },
+        {
+          "text": "Lihtenştayn",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "ulkeler-010",
+      "text": "Yeni Zelanda'nın başkenti hangi şehirdir?",
+      "difficulty": 2,
+      "explanation": "En büyük şehir Auckland olsa da başkent Wellington'dır.",
+      "options": [
+        {
+          "text": "Wellington",
+          "is_correct": true
+        },
+        {
+          "text": "Auckland",
+          "is_correct": false
+        },
+        {
+          "text": "Christchurch",
+          "is_correct": false
+        },
+        {
+          "text": "Queenstown",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "ulkeler-011",
+      "text": "Arjantin'in başkenti hangi şehirdir?",
+      "difficulty": 2,
+      "explanation": "Santiago Şili'nin, Montevideo Uruguay'ın, Lima Peru'nun başkentidir.",
+      "options": [
+        {
+          "text": "Buenos Aires",
+          "is_correct": true
+        },
+        {
+          "text": "Santiago",
+          "is_correct": false
+        },
+        {
+          "text": "Montevideo",
+          "is_correct": false
+        },
+        {
+          "text": "Lima",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "ulkeler-012",
+      "text": "İsviçre'nin federal başkenti hangi şehirdir?",
+      "difficulty": 2,
+      "explanation": "İsviçre'nin yönetim merkezi Bern'dir.",
+      "options": [
+        {
+          "text": "Bern",
+          "is_correct": true
+        },
+        {
+          "text": "Zürih",
+          "is_correct": false
+        },
+        {
+          "text": "Cenevre",
+          "is_correct": false
+        },
+        {
+          "text": "Basel",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "ulkeler-013",
+      "text": "Para birimi \"yen\" olan ülke hangisidir?",
+      "difficulty": 2,
+      "explanation": "Çin'in para birimi yuan, Güney Kore'ninki won, Tayland'ınki bahttır.",
+      "options": [
+        {
+          "text": "Japonya",
+          "is_correct": true
+        },
+        {
+          "text": "Çin",
+          "is_correct": false
+        },
+        {
+          "text": "Güney Kore",
+          "is_correct": false
+        },
+        {
+          "text": "Tayland",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "ulkeler-014",
+      "text": "Aşağıdaki ülkelerden hangisinin denize kıyısı yoktur?",
+      "difficulty": 2,
+      "explanation": "Macaristan karayla çevrili bir Orta Avrupa ülkesidir.",
+      "options": [
+        {
+          "text": "Macaristan",
+          "is_correct": true
+        },
+        {
+          "text": "Hırvatistan",
+          "is_correct": false
+        },
+        {
+          "text": "Portekiz",
+          "is_correct": false
+        },
+        {
+          "text": "Norveç",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "ulkeler-015",
+      "text": "Güney Afrika Cumhuriyeti'nin kaç başkenti vardır?",
+      "difficulty": 3,
+      "explanation": "Pretoria (yürütme), Cape Town (yasama) ve Bloemfontein (yargı).",
+      "options": [
+        {
+          "text": "3",
+          "is_correct": true
+        },
+        {
+          "text": "1",
+          "is_correct": false
+        },
+        {
+          "text": "2",
+          "is_correct": false
+        },
+        {
+          "text": "4",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "ulkeler-016",
+      "text": "Fas'ın başkenti hangi şehirdir?",
+      "difficulty": 2,
+      "explanation": "En büyük şehir Kazablanka olsa da başkent Rabat'tır.",
+      "options": [
+        {
+          "text": "Rabat",
+          "is_correct": true
+        },
+        {
+          "text": "Kazablanka",
+          "is_correct": false
+        },
+        {
+          "text": "Marakeş",
+          "is_correct": false
+        },
+        {
+          "text": "Fes",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "ulkeler-017",
+      "text": "Nil Nehri hangi denize dökülür?",
+      "difficulty": 2,
+      "explanation": "Nil, Mısır'da delta oluşturarak Akdeniz'e dökülür.",
+      "options": [
+        {
+          "text": "Akdeniz",
+          "is_correct": true
+        },
+        {
+          "text": "Kızıldeniz",
+          "is_correct": false
+        },
+        {
+          "text": "Arap Denizi",
+          "is_correct": false
+        },
+        {
+          "text": "Karadeniz",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "ulkeler-018",
+      "text": "\"Bin Göller Ülkesi\" olarak bilinen ülke hangisidir?",
+      "difficulty": 2,
+      "explanation": "Finlandiya'da 180 binden fazla göl bulunur.",
+      "options": [
+        {
+          "text": "Finlandiya",
+          "is_correct": true
+        },
+        {
+          "text": "Norveç",
+          "is_correct": false
+        },
+        {
+          "text": "İsveç",
+          "is_correct": false
+        },
+        {
+          "text": "İzlanda",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "ulkeler-019",
+      "text": "Everest Dağı hangi iki ülkenin sınırında yer alır?",
+      "difficulty": 3,
+      "explanation": "Everest, Nepal ile Çin'e bağlı Tibet sınırındadır.",
+      "options": [
+        {
+          "text": "Nepal ve Çin",
+          "is_correct": true
+        },
+        {
+          "text": "Hindistan ve Nepal",
+          "is_correct": false
+        },
+        {
+          "text": "Nepal ve Butan",
+          "is_correct": false
+        },
+        {
+          "text": "Pakistan ve Çin",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "ulkeler-020",
+      "text": "Bolivya'nın anayasal başkenti hangi şehirdir?",
+      "difficulty": 3,
+      "explanation": "Anayasal başkent Sucre'dir; hükümet ise La Paz'da bulunur. Quito Ekvador'un başkentidir.",
+      "options": [
+        {
+          "text": "Sucre",
+          "is_correct": true
+        },
+        {
+          "text": "Santa Cruz",
+          "is_correct": false
+        },
+        {
+          "text": "Cochabamba",
+          "is_correct": false
+        },
+        {
+          "text": "Quito",
+          "is_correct": false
+        }
+      ]
+    }
+  ]
+}

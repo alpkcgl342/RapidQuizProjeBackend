@@ -1,0 +1,492 @@
+{
+  "category": {
+    "slug": "bilgisayar-muhendisligi",
+    "name": "Bilgisayar Mühendisliği",
+    "description": "Donanım, ağlar, işletim sistemleri",
+    "color_hex": "#2B8CFF",
+    "icon": "chip",
+    "display_order": 3
+  },
+  "questions": [
+    {
+      "external_ref": "bilgisayar-muhendisligi-001",
+      "text": "1 byte kaç bitten oluşur?",
+      "difficulty": 1,
+      "explanation": "1 byte = 8 bit.",
+      "options": [
+        {
+          "text": "8",
+          "is_correct": true
+        },
+        {
+          "text": "4",
+          "is_correct": false
+        },
+        {
+          "text": "16",
+          "is_correct": false
+        },
+        {
+          "text": "32",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "bilgisayar-muhendisligi-002",
+      "text": "İşlemcide, çalıştırılacak bir sonraki komutun adresini tutan yazmaç hangisidir?",
+      "difficulty": 2,
+      "explanation": "Program Counter, sıradaki komutun bellek adresini tutar.",
+      "options": [
+        {
+          "text": "Program sayacı (PC)",
+          "is_correct": true
+        },
+        {
+          "text": "Yığın göstericisi (SP)",
+          "is_correct": false
+        },
+        {
+          "text": "Akümülatör",
+          "is_correct": false
+        },
+        {
+          "text": "Durum yazmacı",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "bilgisayar-muhendisligi-003",
+      "text": "OSI referans modelinde IP protokolü hangi katmanda yer alır?",
+      "difficulty": 2,
+      "explanation": "IP, yönlendirme yapan ağ (network) katmanı protokolüdür.",
+      "options": [
+        {
+          "text": "Ağ katmanı (3. katman)",
+          "is_correct": true
+        },
+        {
+          "text": "Taşıma katmanı (4. katman)",
+          "is_correct": false
+        },
+        {
+          "text": "Veri bağı katmanı (2. katman)",
+          "is_correct": false
+        },
+        {
+          "text": "Uygulama katmanı (7. katman)",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "bilgisayar-muhendisligi-004",
+      "text": "Güç kesildiğinde içeriği silinen bellek türü hangisidir?",
+      "difficulty": 1,
+      "explanation": "RAM uçucu (volatile) bir bellektir.",
+      "options": [
+        {
+          "text": "RAM",
+          "is_correct": true
+        },
+        {
+          "text": "ROM",
+          "is_correct": false
+        },
+        {
+          "text": "SSD",
+          "is_correct": false
+        },
+        {
+          "text": "HDD",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "bilgisayar-muhendisligi-005",
+      "text": "İkilik (binary) sistemdeki 1010 sayısının onluk karşılığı nedir?",
+      "difficulty": 1,
+      "explanation": "1·8 + 0·4 + 1·2 + 0·1 = 10.",
+      "options": [
+        {
+          "text": "10",
+          "is_correct": true
+        },
+        {
+          "text": "8",
+          "is_correct": false
+        },
+        {
+          "text": "12",
+          "is_correct": false
+        },
+        {
+          "text": "5",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "bilgisayar-muhendisligi-006",
+      "text": "CPU kısaltmasının açılımı nedir?",
+      "difficulty": 1,
+      "explanation": "CPU, merkezi işlem birimidir.",
+      "options": [
+        {
+          "text": "Central Processing Unit",
+          "is_correct": true
+        },
+        {
+          "text": "Computer Personal Unit",
+          "is_correct": false
+        },
+        {
+          "text": "Central Program Utility",
+          "is_correct": false
+        },
+        {
+          "text": "Core Processing Unit",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "bilgisayar-muhendisligi-007",
+      "text": "Onaltılık (hexadecimal) sistemdeki \"F\" onluk sistemde kaça karşılık gelir?",
+      "difficulty": 1,
+      "explanation": "Onaltılıkta A=10, B=11 … F=15'tir.",
+      "options": [
+        {
+          "text": "15",
+          "is_correct": true
+        },
+        {
+          "text": "14",
+          "is_correct": false
+        },
+        {
+          "text": "16",
+          "is_correct": false
+        },
+        {
+          "text": "10",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "bilgisayar-muhendisligi-008",
+      "text": "Yalnızca iki girişi de 1 olduğunda çıkışı 1 olan mantık kapısı hangisidir?",
+      "difficulty": 1,
+      "explanation": "AND kapısı ancak tüm girişler 1 ise 1 üretir.",
+      "options": [
+        {
+          "text": "AND",
+          "is_correct": true
+        },
+        {
+          "text": "OR",
+          "is_correct": false
+        },
+        {
+          "text": "XOR",
+          "is_correct": false
+        },
+        {
+          "text": "NOR",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "bilgisayar-muhendisligi-009",
+      "text": "Alan adlarını IP adreslerine çeviren sistem hangisidir?",
+      "difficulty": 1,
+      "explanation": "DNS (Domain Name System) alan adı çözümlemesi yapar.",
+      "options": [
+        {
+          "text": "DNS",
+          "is_correct": true
+        },
+        {
+          "text": "DHCP",
+          "is_correct": false
+        },
+        {
+          "text": "FTP",
+          "is_correct": false
+        },
+        {
+          "text": "SMTP",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "bilgisayar-muhendisligi-010",
+      "text": "İki sürecin birbirinin tuttuğu kaynağı bekleyerek sonsuza dek durmasına ne denir?",
+      "difficulty": 2,
+      "explanation": "Deadlock'ta süreçler döngüsel olarak birbirini bekler.",
+      "options": [
+        {
+          "text": "Kilitlenme (deadlock)",
+          "is_correct": true
+        },
+        {
+          "text": "Yarış durumu",
+          "is_correct": false
+        },
+        {
+          "text": "Açlık (starvation)",
+          "is_correct": false
+        },
+        {
+          "text": "Bağlam değişimi",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "bilgisayar-muhendisligi-011",
+      "text": "Bir IPv4 adresi kaç bitten oluşur?",
+      "difficulty": 1,
+      "explanation": "IPv4 adresleri 32 bittir (ör. 192.168.1.1).",
+      "options": [
+        {
+          "text": "32",
+          "is_correct": true
+        },
+        {
+          "text": "64",
+          "is_correct": false
+        },
+        {
+          "text": "128",
+          "is_correct": false
+        },
+        {
+          "text": "16",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "bilgisayar-muhendisligi-012",
+      "text": "Bağlantı yönelimli ve güvenilir veri iletimi sağlayan taşıma katmanı protokolü hangisidir?",
+      "difficulty": 2,
+      "explanation": "TCP, bağlantı kurar; sıralı ve kayıpsız iletimi garanti eder.",
+      "options": [
+        {
+          "text": "TCP",
+          "is_correct": true
+        },
+        {
+          "text": "UDP",
+          "is_correct": false
+        },
+        {
+          "text": "IP",
+          "is_correct": false
+        },
+        {
+          "text": "ICMP",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "bilgisayar-muhendisligi-013",
+      "text": "Moore Yasası'na göre bir çipteki transistör sayısı yaklaşık kaç yılda bir ikiye katlanır?",
+      "difficulty": 2,
+      "explanation": "Gordon Moore 1975'te bu süreyi yaklaşık iki yıl olarak güncelledi.",
+      "options": [
+        {
+          "text": "2",
+          "is_correct": true
+        },
+        {
+          "text": "1",
+          "is_correct": false
+        },
+        {
+          "text": "5",
+          "is_correct": false
+        },
+        {
+          "text": "10",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "bilgisayar-muhendisligi-014",
+      "text": "İşletim sisteminde çalışmakta olan bir programın örneğine ne denir?",
+      "difficulty": 2,
+      "explanation": "Süreç, bellekte yürütülen bir program örneğidir.",
+      "options": [
+        {
+          "text": "Süreç (process)",
+          "is_correct": true
+        },
+        {
+          "text": "Derleyici",
+          "is_correct": false
+        },
+        {
+          "text": "Sürücü",
+          "is_correct": false
+        },
+        {
+          "text": "Kabuk (shell)",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "bilgisayar-muhendisligi-015",
+      "text": "Bir IPv6 adresi kaç bitten oluşur?",
+      "difficulty": 2,
+      "explanation": "IPv6 adresleri 128 bittir.",
+      "options": [
+        {
+          "text": "128",
+          "is_correct": true
+        },
+        {
+          "text": "64",
+          "is_correct": false
+        },
+        {
+          "text": "32",
+          "is_correct": false
+        },
+        {
+          "text": "256",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "bilgisayar-muhendisligi-016",
+      "text": "İşlemci ile ana bellek arasındaki küçük ve hızlı ara belleğe ne denir?",
+      "difficulty": 2,
+      "explanation": "Önbellek, sık kullanılan veriye erişimi hızlandırır.",
+      "options": [
+        {
+          "text": "Önbellek (cache)",
+          "is_correct": true
+        },
+        {
+          "text": "Sanal bellek",
+          "is_correct": false
+        },
+        {
+          "text": "Takas alanı (swap)",
+          "is_correct": false
+        },
+        {
+          "text": "Flash bellek",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "bilgisayar-muhendisligi-017",
+      "text": "Von Neumann mimarisinin temel özelliği nedir?",
+      "difficulty": 3,
+      "explanation": "Von Neumann mimarisinde program ve veri aynı bellekte tutulur; ayrı bellek Harvard mimarisidir.",
+      "options": [
+        {
+          "text": "Komut ve veri aynı bellekte",
+          "is_correct": true
+        },
+        {
+          "text": "Komut ve veri ayrı bellekte",
+          "is_correct": false
+        },
+        {
+          "text": "Yalnızca paralel işlem yapar",
+          "is_correct": false
+        },
+        {
+          "text": "Bellek yerine yazmaç kullanır",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "bilgisayar-muhendisligi-018",
+      "text": "8 bitlik işaretli (ikiye tümleyen) bir tamsayının alabileceği en küçük değer nedir?",
+      "difficulty": 3,
+      "explanation": "8 bit ikiye tümleyende aralık -128 ile 127 arasıdır.",
+      "options": [
+        {
+          "text": "-128",
+          "is_correct": true
+        },
+        {
+          "text": "-127",
+          "is_correct": false
+        },
+        {
+          "text": "-255",
+          "is_correct": false
+        },
+        {
+          "text": "-256",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "bilgisayar-muhendisligi-019",
+      "text": "Sanal bellekte erişilen sayfanın fiziksel bellekte bulunmamasına ne denir?",
+      "difficulty": 3,
+      "explanation": "Page fault olduğunda işletim sistemi sayfayı diskten belleğe yükler.",
+      "options": [
+        {
+          "text": "Sayfa hatası (page fault)",
+          "is_correct": true
+        },
+        {
+          "text": "Önbellek ıskası (cache miss)",
+          "is_correct": false
+        },
+        {
+          "text": "Yığın taşması",
+          "is_correct": false
+        },
+        {
+          "text": "Bölütleme hatası",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "bilgisayar-muhendisligi-020",
+      "text": "Çıkışı yalnızca o anki girişlere bağlı olan, hafızasız mantık devresine ne denir?",
+      "difficulty": 3,
+      "explanation": "Ardışıl devrelerin aksine kombinasyonel devreler durum (hafıza) tutmaz.",
+      "options": [
+        {
+          "text": "Kombinasyonel devre",
+          "is_correct": true
+        },
+        {
+          "text": "Ardışıl (sequential) devre",
+          "is_correct": false
+        },
+        {
+          "text": "Flip-flop",
+          "is_correct": false
+        },
+        {
+          "text": "Sayaç",
+          "is_correct": false
+        }
+      ]
+    }
+  ]
+}

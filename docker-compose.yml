@@ -1,0 +1,31 @@
+# Yalnızca yerel geliştirme içindir (§14.3).
+#   Sadece veritabanı:   docker compose up -d db
+#   API + veritabanı:    docker compose up --build
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: rapidquiz
+      POSTGRES_USER: rapidquiz
+      POSTGRES_PASSWORD: rapidquiz
+    ports: ["${DB_HOST_PORT:-5432}:5432"]   # 5432 doluysa .env içinde DB_HOST_PORT ayarla
+    volumes: ["pgdata:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rapidquiz"]
+      interval: 5s
+      retries: 10
+
+  api:
+    build: { context: ., target: runtime }
+    env_file: .env
+    environment:
+      DJANGO_SETTINGS_MODULE: config.settings.local
+      DATABASE_URL: postgres://rapidquiz:rapidquiz@db:5432/rapidquiz
+      PORT: "8000"
+    ports: ["8000:8000"]
+    depends_on:
+      db: { condition: service_healthy }
+    volumes: ["./:/app"]        # yerelde canlı kod; production imajında yok
+
+volumes:
+  pgdata:

@@ -1,0 +1,492 @@
+{
+  "category": {
+    "slug": "yapay-zeka",
+    "name": "Yapay Zekâ",
+    "description": "Makine öğrenmesi, modeller, kavramlar",
+    "color_hex": "#00C2A8",
+    "icon": "brain",
+    "display_order": 2
+  },
+  "questions": [
+    {
+      "external_ref": "yapay-zeka-001",
+      "text": "Denetimli öğrenme (supervised learning) için eğitim verisinde ne bulunmak zorundadır?",
+      "difficulty": 1,
+      "explanation": "Denetimli öğrenmede model, girdi-etiket çiftlerinden öğrenir.",
+      "options": [
+        {
+          "text": "Etiketlenmiş örnekler",
+          "is_correct": true
+        },
+        {
+          "text": "Yalnızca görsel veriler",
+          "is_correct": false
+        },
+        {
+          "text": "Ödül sinyali",
+          "is_correct": false
+        },
+        {
+          "text": "Etiketsiz kümeler",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yapay-zeka-002",
+      "text": "Bir modelin eğitim verisinde çok başarılı olup yeni veride kötü sonuç vermesine ne denir?",
+      "difficulty": 1,
+      "explanation": "Model eğitim verisini ezberlemiş, genelleme yapamıyordur.",
+      "options": [
+        {
+          "text": "Aşırı öğrenme (overfitting)",
+          "is_correct": true
+        },
+        {
+          "text": "Eksik öğrenme (underfitting)",
+          "is_correct": false
+        },
+        {
+          "text": "Normalizasyon",
+          "is_correct": false
+        },
+        {
+          "text": "Çapraz doğrulama",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yapay-zeka-003",
+      "text": "Transformer mimarisini tanıtan 2017 tarihli makalenin adı nedir?",
+      "difficulty": 3,
+      "explanation": "Vaswani ve arkadaşlarının 2017 makalesi Transformer mimarisini tanıttı.",
+      "options": [
+        {
+          "text": "Attention Is All You Need",
+          "is_correct": true
+        },
+        {
+          "text": "ImageNet Classification with Deep CNNs",
+          "is_correct": false
+        },
+        {
+          "text": "Generative Adversarial Networks",
+          "is_correct": false
+        },
+        {
+          "text": "Deep Residual Learning",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yapay-zeka-004",
+      "text": "Yapay sinir ağlarında hatayı geriye yayarak ağırlıkları güncelleyen yöntem hangisidir?",
+      "difficulty": 2,
+      "explanation": "Geri yayılım, hatanın gradyanını katmanlar boyunca geriye taşır.",
+      "options": [
+        {
+          "text": "Geri yayılım (backpropagation)",
+          "is_correct": true
+        },
+        {
+          "text": "İleri besleme",
+          "is_correct": false
+        },
+        {
+          "text": "Budama (pruning)",
+          "is_correct": false
+        },
+        {
+          "text": "Kümeleme",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yapay-zeka-005",
+      "text": "Etiketsiz verideki benzer örnekleri gruplara ayırma işlemine ne denir?",
+      "difficulty": 1,
+      "explanation": "Kümeleme, denetimsiz öğrenmenin temel görevlerinden biridir.",
+      "options": [
+        {
+          "text": "Kümeleme (clustering)",
+          "is_correct": true
+        },
+        {
+          "text": "Sınıflandırma",
+          "is_correct": false
+        },
+        {
+          "text": "Regresyon",
+          "is_correct": false
+        },
+        {
+          "text": "Pekiştirme",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yapay-zeka-006",
+      "text": "Bir ajanın ödül ve cezalarla öğrendiği makine öğrenmesi türü hangisidir?",
+      "difficulty": 1,
+      "explanation": "Pekiştirmeli öğrenmede ajan, ödülü en üst düzeye çıkarmayı öğrenir.",
+      "options": [
+        {
+          "text": "Pekiştirmeli öğrenme",
+          "is_correct": true
+        },
+        {
+          "text": "Denetimli öğrenme",
+          "is_correct": false
+        },
+        {
+          "text": "Denetimsiz öğrenme",
+          "is_correct": false
+        },
+        {
+          "text": "Transfer öğrenme",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yapay-zeka-007",
+      "text": "Sürekli bir sayısal değeri tahmin etme problemine ne denir?",
+      "difficulty": 1,
+      "explanation": "Regresyon, ev fiyatı gibi sürekli değerleri tahmin eder.",
+      "options": [
+        {
+          "text": "Regresyon",
+          "is_correct": true
+        },
+        {
+          "text": "Sınıflandırma",
+          "is_correct": false
+        },
+        {
+          "text": "Kümeleme",
+          "is_correct": false
+        },
+        {
+          "text": "Boyut indirgeme",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yapay-zeka-008",
+      "text": "Makinelerin düşünüp düşünemediğini sınamak için adını taşıyan testi öneren kimdir?",
+      "difficulty": 1,
+      "explanation": "Alan Turing, 1950'de Turing Testi'ni önerdi.",
+      "options": [
+        {
+          "text": "Alan Turing",
+          "is_correct": true
+        },
+        {
+          "text": "John McCarthy",
+          "is_correct": false
+        },
+        {
+          "text": "Marvin Minsky",
+          "is_correct": false
+        },
+        {
+          "text": "Claude Shannon",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yapay-zeka-009",
+      "text": "\"Yapay zekâ\" terimini 1956 Dartmouth konferansıyla ortaya atan kimdir?",
+      "difficulty": 2,
+      "explanation": "John McCarthy, Dartmouth önerisinde \"artificial intelligence\" terimini kullandı.",
+      "options": [
+        {
+          "text": "John McCarthy",
+          "is_correct": true
+        },
+        {
+          "text": "Alan Turing",
+          "is_correct": false
+        },
+        {
+          "text": "Marvin Minsky",
+          "is_correct": false
+        },
+        {
+          "text": "Geoffrey Hinton",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yapay-zeka-010",
+      "text": "Görüntü tanımada en yaygın kullanılan sinir ağı türü hangisidir?",
+      "difficulty": 2,
+      "explanation": "CNN'ler evrişim katmanlarıyla görüntüdeki yerel örüntüleri yakalar.",
+      "options": [
+        {
+          "text": "Evrişimli sinir ağı (CNN)",
+          "is_correct": true
+        },
+        {
+          "text": "Tekrarlayan sinir ağı (RNN)",
+          "is_correct": false
+        },
+        {
+          "text": "Karar ağacı",
+          "is_correct": false
+        },
+        {
+          "text": "Naive Bayes",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yapay-zeka-011",
+      "text": "LLM kısaltması neyin karşılığıdır?",
+      "difficulty": 1,
+      "explanation": "LLM, büyük dil modeli (Large Language Model) demektir.",
+      "options": [
+        {
+          "text": "Large Language Model",
+          "is_correct": true
+        },
+        {
+          "text": "Linear Learning Machine",
+          "is_correct": false
+        },
+        {
+          "text": "Long Logic Memory",
+          "is_correct": false
+        },
+        {
+          "text": "Low Latency Model",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yapay-zeka-012",
+      "text": "Veri setinin, eğitimde kullanılmayıp modeli değerlendirmek için ayrılan kısmına ne denir?",
+      "difficulty": 1,
+      "explanation": "Test seti, modelin görmediği veride başarısını ölçer.",
+      "options": [
+        {
+          "text": "Test seti",
+          "is_correct": true
+        },
+        {
+          "text": "Eğitim seti",
+          "is_correct": false
+        },
+        {
+          "text": "Özellik seti",
+          "is_correct": false
+        },
+        {
+          "text": "Etiket seti",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yapay-zeka-013",
+      "text": "Doğru pozitiflerin, tüm pozitif tahminlere oranına ne denir?",
+      "difficulty": 3,
+      "explanation": "Precision = TP / (TP + FP).",
+      "options": [
+        {
+          "text": "Kesinlik (precision)",
+          "is_correct": true
+        },
+        {
+          "text": "Duyarlılık (recall)",
+          "is_correct": false
+        },
+        {
+          "text": "Doğruluk (accuracy)",
+          "is_correct": false
+        },
+        {
+          "text": "F1 skoru",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yapay-zeka-014",
+      "text": "Negatif girdileri sıfır yapıp pozitifleri aynen geçiren aktivasyon fonksiyonu hangisidir?",
+      "difficulty": 2,
+      "explanation": "ReLU(x) = max(0, x).",
+      "options": [
+        {
+          "text": "ReLU",
+          "is_correct": true
+        },
+        {
+          "text": "Sigmoid",
+          "is_correct": false
+        },
+        {
+          "text": "Tanh",
+          "is_correct": false
+        },
+        {
+          "text": "Softmax",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yapay-zeka-015",
+      "text": "Çok sınıflı sınıflandırmada çıktıları olasılık dağılımına çeviren fonksiyon hangisidir?",
+      "difficulty": 2,
+      "explanation": "Softmax, çıktıları toplamı 1 olan olasılıklara dönüştürür.",
+      "options": [
+        {
+          "text": "Softmax",
+          "is_correct": true
+        },
+        {
+          "text": "ReLU",
+          "is_correct": false
+        },
+        {
+          "text": "Tanh",
+          "is_correct": false
+        },
+        {
+          "text": "Adam",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yapay-zeka-016",
+      "text": "Gradyan inişinde ağırlıkların her adımda ne kadar değişeceğini belirleyen parametre hangisidir?",
+      "difficulty": 2,
+      "explanation": "Öğrenme oranı, gradyan yönünde atılan adımın büyüklüğüdür.",
+      "options": [
+        {
+          "text": "Öğrenme oranı",
+          "is_correct": true
+        },
+        {
+          "text": "Dropout oranı",
+          "is_correct": false
+        },
+        {
+          "text": "Batch boyutu",
+          "is_correct": false
+        },
+        {
+          "text": "Epoch sayısı",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yapay-zeka-017",
+      "text": "GPT kısaltmasındaki \"T\" harfi neyi ifade eder?",
+      "difficulty": 2,
+      "explanation": "GPT: Generative Pre-trained Transformer.",
+      "options": [
+        {
+          "text": "Transformer",
+          "is_correct": true
+        },
+        {
+          "text": "Training",
+          "is_correct": false
+        },
+        {
+          "text": "Token",
+          "is_correct": false
+        },
+        {
+          "text": "Tensor",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yapay-zeka-018",
+      "text": "AlphaGo, 2016'da hangi ünlü Go ustasını 4-1 yendi?",
+      "difficulty": 3,
+      "explanation": "DeepMind'ın AlphaGo'su Mart 2016'da Lee Sedol'u 4-1 yendi.",
+      "options": [
+        {
+          "text": "Lee Sedol",
+          "is_correct": true
+        },
+        {
+          "text": "Ke Jie",
+          "is_correct": false
+        },
+        {
+          "text": "Fan Hui",
+          "is_correct": false
+        },
+        {
+          "text": "Cho Chikun",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yapay-zeka-019",
+      "text": "Eğitimde nöronları rastgele devre dışı bırakarak aşırı öğrenmeyi azaltan teknik hangisidir?",
+      "difficulty": 2,
+      "explanation": "Dropout, her adımda rastgele nöronları kapatarak ağın ezberlemesini zorlaştırır.",
+      "options": [
+        {
+          "text": "Dropout",
+          "is_correct": true
+        },
+        {
+          "text": "Pooling",
+          "is_correct": false
+        },
+        {
+          "text": "Padding",
+          "is_correct": false
+        },
+        {
+          "text": "Embedding",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "yapay-zeka-020",
+      "text": "Kelimeleri, anlamca yakın olanlar birbirine yakın düşecek şekilde vektörlerle temsil etmeye ne denir?",
+      "difficulty": 3,
+      "explanation": "Word2Vec gibi gömme yöntemleri anlamsal benzerliği vektör uzayına taşır.",
+      "options": [
+        {
+          "text": "Kelime gömme (embedding)",
+          "is_correct": true
+        },
+        {
+          "text": "One-hot kodlama",
+          "is_correct": false
+        },
+        {
+          "text": "Tokenizasyon",
+          "is_correct": false
+        },
+        {
+          "text": "Kök bulma (stemming)",
+          "is_correct": false
+        }
+      ]
+    }
+  ]
+}

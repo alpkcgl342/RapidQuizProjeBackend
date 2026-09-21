@@ -1,0 +1,492 @@
+{
+  "category": {
+    "slug": "fizik",
+    "name": "Fizik",
+    "description": "Mekanik, elektrik, modern fizik",
+    "color_hex": "#FF5C8A",
+    "icon": "atom",
+    "display_order": 5
+  },
+  "questions": [
+    {
+      "external_ref": "fizik-001",
+      "text": "Işığın boşluktaki hızı yaklaşık olarak kaçtır?",
+      "difficulty": 1,
+      "explanation": "Işık boşlukta saniyede yaklaşık 299.792 km yol alır.",
+      "options": [
+        {
+          "text": "300.000 km/s",
+          "is_correct": true
+        },
+        {
+          "text": "150.000 km/s",
+          "is_correct": false
+        },
+        {
+          "text": "3.000 km/s",
+          "is_correct": false
+        },
+        {
+          "text": "30.000.000 km/s",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "fizik-002",
+      "text": "Newton'un ikinci hareket yasası hangi bağıntıyla ifade edilir?",
+      "difficulty": 1,
+      "explanation": "Net kuvvet, kütle ile ivmenin çarpımına eşittir.",
+      "options": [
+        {
+          "text": "F = m · a",
+          "is_correct": true
+        },
+        {
+          "text": "E = m · c²",
+          "is_correct": false
+        },
+        {
+          "text": "P = F / A",
+          "is_correct": false
+        },
+        {
+          "text": "W = F · x",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "fizik-003",
+      "text": "SI birim sisteminde elektrik akımının birimi nedir?",
+      "difficulty": 2,
+      "explanation": "Amper, SI'nın yedi temel biriminden biridir.",
+      "options": [
+        {
+          "text": "Amper",
+          "is_correct": true
+        },
+        {
+          "text": "Volt",
+          "is_correct": false
+        },
+        {
+          "text": "Ohm",
+          "is_correct": false
+        },
+        {
+          "text": "Coulomb",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "fizik-004",
+      "text": "SI birim sisteminde kuvvetin birimi nedir?",
+      "difficulty": 1,
+      "explanation": "1 N = 1 kg·m/s².",
+      "options": [
+        {
+          "text": "Newton",
+          "is_correct": true
+        },
+        {
+          "text": "Joule",
+          "is_correct": false
+        },
+        {
+          "text": "Watt",
+          "is_correct": false
+        },
+        {
+          "text": "Pascal",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "fizik-005",
+      "text": "SI birim sisteminde enerjinin birimi nedir?",
+      "difficulty": 1,
+      "explanation": "1 J = 1 N·m.",
+      "options": [
+        {
+          "text": "Joule",
+          "is_correct": true
+        },
+        {
+          "text": "Watt",
+          "is_correct": false
+        },
+        {
+          "text": "Newton",
+          "is_correct": false
+        },
+        {
+          "text": "Volt",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "fizik-006",
+      "text": "Dünya yüzeyinde yer çekimi ivmesi yaklaşık kaçtır?",
+      "difficulty": 1,
+      "explanation": "1,6 m/s² Ay'daki yer çekimi ivmesidir.",
+      "options": [
+        {
+          "text": "9,8 m/s²",
+          "is_correct": true
+        },
+        {
+          "text": "1,6 m/s²",
+          "is_correct": false
+        },
+        {
+          "text": "15 m/s²",
+          "is_correct": false
+        },
+        {
+          "text": "98 m/s²",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "fizik-007",
+      "text": "Saf su deniz seviyesinde kaç °C'de kaynar?",
+      "difficulty": 1,
+      "explanation": "1 atm basınçta suyun kaynama noktası 100 °C'dir.",
+      "options": [
+        {
+          "text": "100 °C",
+          "is_correct": true
+        },
+        {
+          "text": "90 °C",
+          "is_correct": false
+        },
+        {
+          "text": "120 °C",
+          "is_correct": false
+        },
+        {
+          "text": "80 °C",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "fizik-008",
+      "text": "Ses dalgaları aşağıdaki ortamlardan hangisinde yayılamaz?",
+      "difficulty": 1,
+      "explanation": "Ses mekanik bir dalgadır; yayılmak için madde gerekir.",
+      "options": [
+        {
+          "text": "Boşluk (vakum)",
+          "is_correct": true
+        },
+        {
+          "text": "Su",
+          "is_correct": false
+        },
+        {
+          "text": "Hava",
+          "is_correct": false
+        },
+        {
+          "text": "Çelik",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "fizik-009",
+      "text": "Elektrik direncinin birimi nedir?",
+      "difficulty": 1,
+      "explanation": "Direnç ohm (Ω) ile ölçülür.",
+      "options": [
+        {
+          "text": "Ohm",
+          "is_correct": true
+        },
+        {
+          "text": "Volt",
+          "is_correct": false
+        },
+        {
+          "text": "Amper",
+          "is_correct": false
+        },
+        {
+          "text": "Watt",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "fizik-010",
+      "text": "Ohm Yasası'na göre gerilim (V), akım (I) ve direnç (R) arasındaki bağıntı nedir?",
+      "difficulty": 2,
+      "explanation": "Gerilim, akım ile direncin çarpımına eşittir.",
+      "options": [
+        {
+          "text": "V = I · R",
+          "is_correct": true
+        },
+        {
+          "text": "V = I / R",
+          "is_correct": false
+        },
+        {
+          "text": "V = R / I",
+          "is_correct": false
+        },
+        {
+          "text": "V = I + R",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "fizik-011",
+      "text": "Mutlak sıfır kaç santigrat derecedir?",
+      "difficulty": 2,
+      "explanation": "0 K = −273,15 °C; −459,67 ise Fahrenhayt karşılığıdır.",
+      "options": [
+        {
+          "text": "−273,15 °C",
+          "is_correct": true
+        },
+        {
+          "text": "−459,67 °C",
+          "is_correct": false
+        },
+        {
+          "text": "−100 °C",
+          "is_correct": false
+        },
+        {
+          "text": "0 °C",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "fizik-012",
+      "text": "Işığın bir ortamdan diğerine geçerken yön değiştirmesine ne denir?",
+      "difficulty": 2,
+      "explanation": "Kırılma, ışığın farklı ortamlardaki hız farkından kaynaklanır.",
+      "options": [
+        {
+          "text": "Kırılma",
+          "is_correct": true
+        },
+        {
+          "text": "Yansıma",
+          "is_correct": false
+        },
+        {
+          "text": "Kırınım",
+          "is_correct": false
+        },
+        {
+          "text": "Girişim",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "fizik-013",
+      "text": "Atom çekirdeğinde bulunan yüksüz parçacık hangisidir?",
+      "difficulty": 2,
+      "explanation": "Çekirdekte pozitif yüklü protonlar ve yüksüz nötronlar bulunur.",
+      "options": [
+        {
+          "text": "Nötron",
+          "is_correct": true
+        },
+        {
+          "text": "Proton",
+          "is_correct": false
+        },
+        {
+          "text": "Elektron",
+          "is_correct": false
+        },
+        {
+          "text": "Foton",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "fizik-014",
+      "text": "SI birim sisteminde basıncın birimi nedir?",
+      "difficulty": 2,
+      "explanation": "1 Pa = 1 N/m².",
+      "options": [
+        {
+          "text": "Pascal",
+          "is_correct": true
+        },
+        {
+          "text": "Newton",
+          "is_correct": false
+        },
+        {
+          "text": "Joule",
+          "is_correct": false
+        },
+        {
+          "text": "Watt",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "fizik-015",
+      "text": "Frekansın SI birimi nedir?",
+      "difficulty": 2,
+      "explanation": "1 Hz saniyede bir titreşimdir.",
+      "options": [
+        {
+          "text": "Hertz",
+          "is_correct": true
+        },
+        {
+          "text": "Desibel",
+          "is_correct": false
+        },
+        {
+          "text": "Tesla",
+          "is_correct": false
+        },
+        {
+          "text": "Weber",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "fizik-016",
+      "text": "Bir cismin momentumu (p) nasıl hesaplanır?",
+      "difficulty": 2,
+      "explanation": "Momentum kütle ile hızın çarpımıdır; ½mv² kinetik enerjidir.",
+      "options": [
+        {
+          "text": "p = m · v",
+          "is_correct": true
+        },
+        {
+          "text": "p = m · a",
+          "is_correct": false
+        },
+        {
+          "text": "p = ½ · m · v²",
+          "is_correct": false
+        },
+        {
+          "text": "p = m · g",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "fizik-017",
+      "text": "Planck sabitinin yaklaşık değeri nedir?",
+      "difficulty": 3,
+      "explanation": "h ≈ 6,626 × 10⁻³⁴ J·s; diğer sayılar G, e ve elektron kütlesine aittir.",
+      "options": [
+        {
+          "text": "6,63 × 10⁻³⁴ J·s",
+          "is_correct": true
+        },
+        {
+          "text": "6,67 × 10⁻¹¹ J·s",
+          "is_correct": false
+        },
+        {
+          "text": "1,60 × 10⁻¹⁹ J·s",
+          "is_correct": false
+        },
+        {
+          "text": "9,11 × 10⁻³¹ J·s",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "fizik-018",
+      "text": "Heisenberg belirsizlik ilkesine göre hangi iki nicelik aynı anda kesin ölçülemez?",
+      "difficulty": 3,
+      "explanation": "Δx · Δp ≥ ħ/2.",
+      "options": [
+        {
+          "text": "Konum ve momentum",
+          "is_correct": true
+        },
+        {
+          "text": "Kütle ve enerji",
+          "is_correct": false
+        },
+        {
+          "text": "Hız ve ivme",
+          "is_correct": false
+        },
+        {
+          "text": "Sıcaklık ve basınç",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "fizik-019",
+      "text": "Termodinamiğin ikinci yasasına göre yalıtılmış bir sistemin entropisi nasıl değişir?",
+      "difficulty": 3,
+      "explanation": "Yalıtılmış sistemde entropi hiçbir zaman azalmaz.",
+      "options": [
+        {
+          "text": "Artar ya da sabit kalır",
+          "is_correct": true
+        },
+        {
+          "text": "Her zaman azalır",
+          "is_correct": false
+        },
+        {
+          "text": "Her zaman sıfırdır",
+          "is_correct": false
+        },
+        {
+          "text": "Periyodik olarak salınır",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      "external_ref": "fizik-020",
+      "text": "Kara cisim ışımasını açıklamak için enerjinin kuantumlu olduğunu öne süren bilim insanı kimdir?",
+      "difficulty": 3,
+      "explanation": "Planck 1900'de enerjinin E = hf paketleri halinde yayıldığını önerdi.",
+      "options": [
+        {
+          "text": "Max Planck",
+          "is_correct": true
+        },
+        {
+          "text": "Albert Einstein",
+          "is_correct": false
+        },
+        {
+          "text": "Niels Bohr",
+          "is_correct": false
+        },
+        {
+          "text": "Ernest Rutherford",
+          "is_correct": false
+        }
+      ]
+    }
+  ]
+}

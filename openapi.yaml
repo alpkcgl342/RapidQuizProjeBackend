@@ -1,0 +1,851 @@
+openapi: 3.1.0
+info:
+  title: Rapid Quiz API
+  version: 1.0.0
+  description: Kayıt gerektirmeyen, soru başına 5 saniyelik hızlı quiz uygulamasının
+    REST API'si. Aktif oturum işlemleri `X-Session-Token` başlığıyla yetkilendirilir.
+paths:
+  /api/v1/categories/:
+    get:
+      operationId: categories_retrieve
+      summary: Kategori listesi
+      tags:
+      - catalog
+      security:
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoryList'
+          description: ''
+  /api/v1/health/:
+    get:
+      operationId: health_retrieve
+      summary: Sağlık kontrolü
+      tags:
+      - health
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Health'
+          description: ''
+  /api/v1/leaderboard/:
+    get:
+      operationId: leaderboard_retrieve
+      summary: Skor tablosu
+      parameters:
+      - in: query
+        name: category
+        schema:
+          type: string
+        description: Kategori slug'ı; yoksa genel tablo
+      - in: query
+        name: limit
+        schema:
+          type: integer
+        description: 1–50, varsayılan 10
+      - in: query
+        name: offset
+        schema:
+          type: integer
+        description: Varsayılan 0
+      - in: query
+        name: period
+        schema:
+          type: string
+          enum:
+          - all
+          - month
+          - today
+          - week
+      tags:
+      - leaderboard
+      security:
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LeaderboardResponse'
+          description: ''
+  /api/v1/quiz-sessions/:
+    post:
+      operationId: quiz_sessions_create
+      summary: Oturum başlat ve ilk soruyu al
+      parameters:
+      - in: header
+        name: X-Client-Platform
+        schema:
+          type: string
+          enum:
+          - android
+          - ios
+          - web
+      - in: header
+        name: X-Client-Version
+        schema:
+          type: string
+      tags:
+      - quiz
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSessionRequest'
+        required: true
+      security:
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateSessionResponse'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: VALIDATION_ERROR
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: NOT_FOUND
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: INSUFFICIENT_QUESTIONS
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: RATE_LIMITED (Retry-After başlığı döner)
+  /api/v1/quiz-sessions/{id}/answers/:
+    post:
+      operationId: quiz_sessions_answers_create
+      description: '`selected_option_id: null` cevapsız (timeout) demektir. Süre aşımı
+        hata değil, `200` + `outcome: "timeout"` olarak döner. Son soruda `next_question`
+        null olur ve `summary` eklenir.'
+      summary: Sıradaki soruya cevap gönder
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        description: Oturum UUID'si
+        required: true
+      tags:
+      - quiz
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnswerRequest'
+        required: true
+      security:
+      - SessionToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnswerResponse'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: VALIDATION_ERROR
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: INVALID_SESSION_TOKEN
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: SESSION_NOT_OWNED
+        '409':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: ALREADY_ANSWERED / SESSION_ALREADY_FINISHED / SESSION_NOT_FINISHED
+            / SCORE_ALREADY_SUBMITTED
+        '410':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: SESSION_EXPIRED
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: RATE_LIMITED (Retry-After başlığı döner)
+  /api/v1/quiz-sessions/{id}/current-question/:
+    get:
+      operationId: quiz_sessions_current_question_retrieve
+      summary: Sıradaki soruyu al (kaldığı yerden devam)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        description: Oturum UUID'si
+        required: true
+      tags:
+      - quiz
+      security:
+      - SessionToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CurrentQuestionResponse'
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: INVALID_SESSION_TOKEN
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: SESSION_NOT_OWNED
+        '410':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: SESSION_EXPIRED
+  /api/v1/quiz-sessions/{id}/submit-score/:
+    post:
+      operationId: quiz_sessions_submit_score_create
+      summary: Skoru takma adla skor tablosuna kaydet
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        description: Oturum UUID'si
+        required: true
+      tags:
+      - quiz
+      - leaderboard
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubmitScoreRequest'
+        required: true
+      security:
+      - SessionToken: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubmitScoreResponse'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: VALIDATION_ERROR
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: INVALID_SESSION_TOKEN
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: SESSION_NOT_OWNED
+        '409':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: ALREADY_ANSWERED / SESSION_ALREADY_FINISHED / SESSION_NOT_FINISHED
+            / SCORE_ALREADY_SUBMITTED
+        '410':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: SESSION_EXPIRED
+        '429':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: RATE_LIMITED (Retry-After başlığı döner)
+  /api/v1/quiz-sessions/{id}/summary/:
+    get:
+      operationId: quiz_sessions_summary_retrieve
+      summary: Biten oturumun özeti
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        description: Oturum UUID'si
+        required: true
+      tags:
+      - quiz
+      security:
+      - SessionToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Summary'
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: INVALID_SESSION_TOKEN
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: SESSION_NOT_OWNED
+        '409':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+          description: ALREADY_ANSWERED / SESSION_ALREADY_FINISHED / SESSION_NOT_FINISHED
+            / SCORE_ALREADY_SUBMITTED
+components:
+  schemas:
+    AnswerRequest:
+      type: object
+      properties:
+        question_id:
+          type: integer
+          minimum: 1
+        selected_option_id:
+          type:
+          - integer
+          - 'null'
+          minimum: 1
+      required:
+      - question_id
+      - selected_option_id
+    AnswerResponse:
+      type: object
+      properties:
+        result:
+          $ref: '#/components/schemas/AnswerResult'
+        session:
+          $ref: '#/components/schemas/SessionProgress'
+        next_question:
+          oneOf:
+          - $ref: '#/components/schemas/ServedQuestion'
+          - type: 'null'
+        summary:
+          allOf:
+          - $ref: '#/components/schemas/Summary'
+          description: Yalnızca son soruda bulunur.
+      required:
+      - next_question
+      - result
+      - session
+    AnswerResult:
+      type: object
+      properties:
+        outcome:
+          $ref: '#/components/schemas/OutcomeEnum'
+        is_correct:
+          type: boolean
+        correct_option_id:
+          type: integer
+        selected_option_id:
+          type:
+          - integer
+          - 'null'
+        elapsed_ms:
+          type: integer
+        points_earned:
+          type: integer
+        explanation:
+          type: string
+      required:
+      - correct_option_id
+      - elapsed_ms
+      - explanation
+      - is_correct
+      - outcome
+      - points_earned
+      - selected_option_id
+    Category:
+      type: object
+      properties:
+        slug:
+          type: string
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+        name:
+          type: string
+          maxLength: 80
+        description:
+          type: string
+          maxLength: 200
+        color_hex:
+          type: string
+          pattern: ^#[0-9A-Fa-f]{6}$
+          maxLength: 7
+        icon:
+          type: string
+          maxLength: 40
+        questions_per_session:
+          type: integer
+          readOnly: true
+        available_question_count:
+          type: integer
+          readOnly: true
+        is_playable:
+          type: boolean
+          readOnly: true
+      required:
+      - available_question_count
+      - color_hex
+      - icon
+      - is_playable
+      - name
+      - questions_per_session
+      - slug
+    CategoryBadge:
+      type: object
+      properties:
+        slug:
+          type: string
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+        name:
+          type: string
+          maxLength: 80
+        color_hex:
+          type: string
+          pattern: ^#[0-9A-Fa-f]{6}$
+          maxLength: 7
+      required:
+      - color_hex
+      - name
+      - slug
+    CategoryList:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Category'
+      required:
+      - results
+    CategoryRef:
+      type: object
+      description: Diğer yanıtlara gömülen kısa kategori bilgisi.
+      properties:
+        slug:
+          type: string
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+        name:
+          type: string
+          maxLength: 80
+        color_hex:
+          type: string
+          pattern: ^#[0-9A-Fa-f]{6}$
+          maxLength: 7
+      required:
+      - color_hex
+      - name
+      - slug
+    CreateSessionRequest:
+      type: object
+      properties:
+        category:
+          type: string
+          minLength: 1
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+      required:
+      - category
+    CreateSessionResponse:
+      type: object
+      properties:
+        session:
+          $ref: '#/components/schemas/Session'
+        question:
+          $ref: '#/components/schemas/ServedQuestion'
+      required:
+      - question
+      - session
+    CurrentQuestionResponse:
+      type: object
+      properties:
+        question:
+          oneOf:
+          - $ref: '#/components/schemas/ServedQuestion'
+          - type: 'null'
+        session:
+          $ref: '#/components/schemas/SessionProgress'
+      required:
+      - question
+      - session
+    Entry:
+      type: object
+      properties:
+        id:
+          type: integer
+        nickname:
+          type: string
+        score:
+          type: integer
+        category:
+          $ref: '#/components/schemas/CategoryBadge'
+        rank_in_category:
+          type: integer
+        rank_overall:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+      required:
+      - category
+      - created_at
+      - id
+      - nickname
+      - rank_in_category
+      - rank_overall
+      - score
+    ErrorBody:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          type: object
+          additionalProperties: {}
+      required:
+      - code
+      - details
+      - message
+    ErrorEnvelope:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorBody'
+      required:
+      - error
+    Health:
+      type: object
+      properties:
+        status:
+          type: string
+        database:
+          type: string
+        version:
+          type: string
+        time:
+          type: string
+          format: date-time
+      required:
+      - database
+      - status
+      - time
+      - version
+    LeaderboardResponse:
+      type: object
+      properties:
+        scope:
+          $ref: '#/components/schemas/ScopeEnum'
+        category:
+          oneOf:
+          - $ref: '#/components/schemas/CategoryRef'
+          - type: 'null'
+        period:
+          type: string
+        count:
+          type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/LeaderboardRow'
+      required:
+      - category
+      - count
+      - period
+      - results
+      - scope
+    LeaderboardRow:
+      type: object
+      properties:
+        id:
+          type: integer
+        rank:
+          type: integer
+        nickname:
+          type: string
+        score:
+          type: integer
+        correct_count:
+          type: integer
+        category:
+          $ref: '#/components/schemas/CategoryBadge'
+        created_at:
+          type: string
+          format: date-time
+      required:
+      - category
+      - correct_count
+      - created_at
+      - id
+      - nickname
+      - rank
+      - score
+    OutcomeEnum:
+      enum:
+      - correct
+      - wrong
+      - timeout
+      type: string
+      description: |-
+        * `correct` - correct
+        * `wrong` - wrong
+        * `timeout` - timeout
+    ScopeEnum:
+      enum:
+      - category
+      - overall
+      type: string
+      description: |-
+        * `category` - category
+        * `overall` - overall
+    ServedOption:
+      type: object
+      properties:
+        id:
+          type: integer
+        label:
+          type: string
+        text:
+          type: string
+      required:
+      - id
+      - label
+      - text
+    ServedQuestion:
+      type: object
+      properties:
+        id:
+          type: integer
+        index:
+          type: integer
+        text:
+          type: string
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServedOption'
+        time_limit_ms:
+          type: integer
+        served_at:
+          type: string
+          format: date-time
+        deadline_at:
+          type: string
+          format: date-time
+      required:
+      - deadline_at
+      - id
+      - index
+      - options
+      - served_at
+      - text
+      - time_limit_ms
+    Session:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        token:
+          type: string
+        category:
+          $ref: '#/components/schemas/CategoryRef'
+        total_questions:
+          type: integer
+        current_index:
+          type: integer
+        score:
+          type: integer
+        status:
+          type: string
+        expires_at:
+          type: string
+          format: date-time
+      required:
+      - category
+      - current_index
+      - expires_at
+      - id
+      - score
+      - status
+      - token
+      - total_questions
+    SessionProgress:
+      type: object
+      properties:
+        current_index:
+          type: integer
+        score:
+          type: integer
+        correct_count:
+          type: integer
+        wrong_count:
+          type: integer
+        timeout_count:
+          type: integer
+        status:
+          type: string
+      required:
+      - correct_count
+      - current_index
+      - score
+      - status
+      - timeout_count
+      - wrong_count
+    SubmitLeaderboard:
+      type: object
+      properties:
+        scope:
+          type: string
+        category:
+          type: string
+        top:
+          type: array
+          items:
+            $ref: '#/components/schemas/LeaderboardRow'
+        user_entry_id:
+          type: integer
+      required:
+      - category
+      - scope
+      - top
+      - user_entry_id
+    SubmitScoreRequest:
+      type: object
+      properties:
+        nickname:
+          type: string
+          minLength: 1
+          maxLength: 100
+      required:
+      - nickname
+    SubmitScoreResponse:
+      type: object
+      properties:
+        entry:
+          $ref: '#/components/schemas/Entry'
+        leaderboard:
+          $ref: '#/components/schemas/SubmitLeaderboard'
+      required:
+      - entry
+      - leaderboard
+    Summary:
+      type: object
+      properties:
+        session_id:
+          type: string
+          format: uuid
+        category:
+          $ref: '#/components/schemas/CategoryRef'
+        status:
+          type: string
+        score:
+          type: integer
+        max_possible_score:
+          type: integer
+        total_questions:
+          type: integer
+        correct_count:
+          type: integer
+        wrong_count:
+          type: integer
+        timeout_count:
+          type: integer
+        accuracy_pct:
+          type: number
+          format: double
+        average_elapsed_ms:
+          type:
+          - integer
+          - 'null'
+        fastest_correct_ms:
+          type:
+          - integer
+          - 'null'
+        total_elapsed_ms:
+          type: integer
+        score_submitted:
+          type: boolean
+        estimated_rank:
+          type: integer
+        finished_at:
+          type: string
+          format: date-time
+      required:
+      - accuracy_pct
+      - average_elapsed_ms
+      - category
+      - correct_count
+      - estimated_rank
+      - fastest_correct_ms
+      - finished_at
+      - max_possible_score
+      - score
+      - score_submitted
+      - session_id
+      - status
+      - timeout_count
+      - total_elapsed_ms
+      - total_questions
+      - wrong_count
+  securitySchemes:
+    SessionToken:
+      type: apiKey
+      in: header
+      name: X-Session-Token

@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main, develop]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: rapidquiz
+          POSTGRES_USER: rapidquiz
+          POSTGRES_PASSWORD: rapidquiz
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U rapidquiz"
+          --health-interval 5s
+          --health-retries 10
+    env:
+      SECRET_KEY: ci-only
+      DATABASE_URL: postgres://rapidquiz:rapidquiz@localhost:5432/rapidquiz
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+      - run: pip install -r requirements-dev.txt
+      - run: ruff check .
+      - run: ruff format --check .
+      - run: pytest --cov --cov-report=term-missing --cov-fail-under=85
+      - name: OpenAPI şemasını doğrula ve üret
+        run: python manage.py spectacular --validate --fail-on-warn --file openapi.yaml
+        env:
+          DJANGO_SETTINGS_MODULE: config.settings.test
+      - name: openapi.yaml güncel mi?
+        run: git diff --exit-code openapi.yaml
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Docker imajını derle (push yok)
+        run: docker build --target runtime -t rapid-quiz-api:ci .
