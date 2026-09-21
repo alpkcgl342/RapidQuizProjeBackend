@@ -1,7 +1,7 @@
 """Quiz motoru — §13.1 zorunlu senaryoları dahil."""
 
 import json
-from datetime import timedelta
+from datetime import datetime, timedelta
 
 import pytest
 from django.core.management import call_command
@@ -117,6 +117,20 @@ def test_correct_answer_scores_with_speed_bonus(player):
     assert session["correct_count"] == 1
     assert session["score"] == result["points_earned"]
     assert res.json()["next_question"]["index"] == 1
+
+
+def test_next_question_clock_starts_after_feedback(player):
+    """Sonraki sorunun süresi, 1200 ms'lik geri bildirim ekranından sonra başlar."""
+    before = timezone.now()
+    res = player.answer(player.correct_option_id())
+    nq = res.json()["next_question"]
+    served = datetime.fromisoformat(nq["served_at"].replace("Z", "+00:00"))
+    assert timedelta(milliseconds=1150) <= served - before <= timedelta(milliseconds=1500)
+
+    # Geri bildirim bitmeden gelen cevap 0 ms sayılır, tam puan alır
+    result = player.answer(player.correct_option_id()).json()["result"]
+    assert result["elapsed_ms"] == 0
+    assert result["points_earned"] == 200
 
 
 def test_wrong_answer_zero_points_and_reveals_correct(player):

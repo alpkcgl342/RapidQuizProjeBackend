@@ -148,6 +148,8 @@ QUIZ = {
     "QUESTIONS_PER_SESSION": env.int("QUIZ_QUESTIONS_PER_SESSION", default=20),
     "TIME_LIMIT_MS": env.int("QUIZ_TIME_LIMIT_MS", default=5000),
     "GRACE_PERIOD_MS": env.int("QUIZ_GRACE_PERIOD_MS", default=800),
+    # Cevap sonrası geri bildirim süresi; sonraki sorunun served_at'i bu kadar ileri alınır.
+    "FEEDBACK_DELAY_MS": env.int("QUIZ_FEEDBACK_DELAY_MS", default=1200),
     "SESSION_TTL_MINUTES": env.int("QUIZ_SESSION_TTL_MINUTES", default=30),
     "BASE_POINTS": env.int("QUIZ_BASE_POINTS", default=100),
     "MAX_SPEED_BONUS": env.int("QUIZ_MAX_SPEED_BONUS", default=100),

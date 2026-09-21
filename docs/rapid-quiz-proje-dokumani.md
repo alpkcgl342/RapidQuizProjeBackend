@@ -144,7 +144,7 @@ Uygulamanın temel karakteri **hız**tır: her soru için kullanıcıya yalnızc
 
 - Seçilen kategorinin rengiyle dolu tam ekran
 - Büyük "3 → 2 → 1 → BAŞLA!" animasyonu (toplam ~2.5 sn)
-- Bu sırada arka planda `POST /quiz-sessions/` çağrısı yapılır ve ilk soru önden yüklenir
+- `POST /quiz-sessions/` çağrısı "BAŞLA!" anında yapılır (ilk sorunun süresi oturum oluşturulunca başladığı için daha erken çağrılırsa geri sayım oyuncunun süresinden yerdi); kategori listesi zaten yüklendiğinden bağlantı sıcaktır
 - Amaç: ağ gecikmesini kullanıcıya hissettirmeden ilk sorunun 0. milisaniyesinde hazır olmasını sağlamak
 
 #### [3] Soru Ekranı
@@ -802,8 +802,10 @@ X-Session-Token: 8Kd3nQ7xR2vT5yU8iO1pA4sD6fG9hJ0kL3zX6cV9bN2m
 
 **20. soru cevaplandığında** `next_question` `null` olur ve oturum otomatik olarak `completed` durumuna geçer; yanıta `summary` nesnesi eklenir (bkz. §7.7).
 
-> **Kritik tasarım notu — `served_at` zamanlaması:**
-> `next_question.served_at` değeri, yanıtın **üretildiği** andır. İstemcinin sayacı ise yanıtı **aldığı** anda başlar. Aradaki ağ gecikmesi kullanıcının aleyhine işlemesin diye 800 ms grace period uygulanır (§4.1). İstemci ayrıca `deadline_at` ile kendi saatini karşılaştırarak sayacını hizalar; saat sapması 2 saniyeden fazlaysa istemci `deadline_at` yerine kendi 5 saniyesini kullanır.
+> **Kritik tasarım notu — `served_at` zamanlaması (güncellendi, D16):**
+> `next_question.served_at` değeri, yanıtın üretildiği an **+ `QUIZ_FEEDBACK_DELAY_MS` (1200 ms)**'dir; yani sorunun istemcide geri bildirim ekranından sonra görüneceği andır. Böylece 1,2 sn'lik geri bildirim oyuncunun süresinden yenmez. Bu andan önce gelen cevaplar 0 ms sayılır. İstemci geri bildirimi `served_at`'e kadar gösterir, sayacını `deadline_at`'e hizalar.
+>
+> (Eski not:) `next_question.served_at` değeri, yanıtın **üretildiği** andır. İstemcinin sayacı ise yanıtı **aldığı** anda başlar. Aradaki ağ gecikmesi kullanıcının aleyhine işlemesin diye 800 ms grace period uygulanır (§4.1). İstemci ayrıca `deadline_at` ile kendi saatini karşılaştırarak sayacını hizalar; saat sapması 2 saniyeden fazlaysa istemci `deadline_at` yerine kendi 5 saniyesini kullanır.
 
 **Olası hatalar:**
 
@@ -1071,6 +1073,7 @@ REDIS_URL=redis://localhost:6379/0
 QUIZ_QUESTIONS_PER_SESSION=20
 QUIZ_TIME_LIMIT_MS=5000
 QUIZ_GRACE_PERIOD_MS=800
+QUIZ_FEEDBACK_DELAY_MS=1200
 QUIZ_SESSION_TTL_MINUTES=30
 QUIZ_BASE_POINTS=100
 QUIZ_MAX_SPEED_BONUS=100
@@ -2315,33 +2318,33 @@ Aşağıdaki görevler, Claude Code'a **sırayla** verilebilecek şekilde yazıl
 
 ### Milestone 5 — Frontend iskeleti
 
-- [ ] **F5.1** Vite + Vue 3 + TypeScript projesini oluştur; ESLint, Prettier, Vitest, Playwright yapılandır
-- [ ] **F5.2** `tokens.css` — §10.2'deki tüm tasarım tokenlarını tanımla; `base.css` reset ve tipografi
-- [ ] **F5.3** Fontları self-host et (Space Grotesk, Inter — latin + latin-ext subset, woff2)
-- [ ] **F5.4** `api/client.ts`: Axios instance, token interceptor, hata zarfı dönüşümü, tek seferlik retry
-- [ ] **F5.5** `openapi.yaml`'dan TypeScript tip üretimi (`npm run gen:types`)
-- [ ] **F5.6** Router ve rota korumaları (§9.1)
-- [ ] **F5.7** `components/base/` temel komponentleri: `BaseButton`, `BaseCard`, `BaseBadge`, `BaseInput`, `BaseSpinner`, `BaseTabs`, `EmptyState`, `ErrorState`
+- [x] **F5.1** Vite + Vue 3 + TypeScript projesini oluştur; ESLint, Prettier, Vitest, Playwright yapılandır *(Playwright E2E, P8.5 ile birlikte kurulacak)*
+- [x] **F5.2** `tokens.css` — §10.2'deki tüm tasarım tokenlarını tanımla; `base.css` reset ve tipografi
+- [x] **F5.3** Fontları self-host et *(@fontsource paketleri ile; Google Fonts'a runtime bağımlılık yok)* (Space Grotesk, Inter — latin + latin-ext subset, woff2)
+- [x] **F5.4** `api/client.ts`: Axios instance, token interceptor, hata zarfı dönüşümü, tek seferlik retry
+- [x] **F5.5** `openapi.yaml`'dan TypeScript tip üretimi (`npm run gen:types`) *(openapi-typescript, TS 6 ile peer uyumsuzluğu nedeniyle `npx` ile çalıştırılır)*
+- [x] **F5.6** Router ve rota korumaları (§9.1)
+- [x] **F5.7** `components/base/` temel komponentleri: `BaseButton`, `BaseCard`, `BaseBadge`, `BaseInput`, `BaseSpinner`, `BaseTabs`, `EmptyState`, `ErrorState`
 
 ### Milestone 6 — Oyun akışı (Frontend)
 
-- [ ] **F6.1** `useQuizStore` — §9.2'deki durum makinesi, `sessionStorage` kalıcılığı (try/catch ile)
-- [ ] **F6.2** `useCountdown` — `requestAnimationFrame` tabanlı, saat sapması düzeltmeli, `visibilitychange` hizalamalı sayaç
-- [ ] **F6.3** `HomeView` + `CategoryCard` — kategori listesi, oynanamaz kategori durumu
-- [ ] **F6.4** `CountdownView` — 3-2-1 animasyonu, arka planda oturum oluşturma ve ilk soruyu önden yükleme
-- [ ] **F6.5** `CountdownRing` — SVG dairesel progress, renk eşikleri, son 2 sn pulse
-- [ ] **F6.6** `QuestionCard` + `OptionButton` — 4 durum, klavye kısayolları (A-D / 1-4), çift tıklama koruması
-- [ ] **F6.7** `QuizView` — soru akışı, cevap gönderme, `FeedbackOverlay`, `ScorePopup`, 1.2 sn sonra otomatik geçiş
-- [ ] **F6.8** Hata ve kopma yönetimi: "Bağlantı koptu" ekranı, `current-question` ile senkronizasyon, `410`/`401` durumunda ana sayfaya dönüş
-- [ ] **F6.9** `onBeforeRouteLeave` çıkış onayı
-- [ ] **F6.10** Testler: `useCountdown` birim testleri, store geçiş testleri
+- [x] **F6.1** `useQuizStore` — §9.2'deki durum makinesi, `sessionStorage` kalıcılığı (try/catch ile)
+- [x] **F6.2** `useCountdown` — `requestAnimationFrame` tabanlı, saat sapması düzeltmeli, `visibilitychange` hizalamalı sayaç
+- [x] **F6.3** `HomeView` + `CategoryCard` — kategori listesi, oynanamaz kategori durumu
+- [x] **F6.4** `CountdownView` — 3-2-1 animasyonu, arka planda oturum oluşturma ve ilk soruyu önden yükleme
+- [x] **F6.5** `CountdownRing` — SVG dairesel progress, renk eşikleri, son 2 sn pulse
+- [x] **F6.6** `QuestionCard` + `OptionButton` — 4 durum, klavye kısayolları (A-D / 1-4), çift tıklama koruması
+- [x] **F6.7** `QuizView` — soru akışı, cevap gönderme, `FeedbackOverlay`, `ScorePopup`, 1.2 sn sonra otomatik geçiş
+- [x] **F6.8** Hata ve kopma yönetimi: "Bağlantı koptu" ekranı, `current-question` ile senkronizasyon, `410`/`401` durumunda ana sayfaya dönüş
+- [x] **F6.9** `onBeforeRouteLeave` çıkış onayı
+- [x] **F6.10** Testler: `useCountdown` birim testleri, store geçiş testleri
 
 ### Milestone 7 — Sonuç ve skor tablosu (Frontend)
 
-- [ ] **F7.1** `ResultView` — `ScoreCounter` sayma animasyonu, `StatTile` dağılımı, performans başlığı, `estimated_rank` gösterimi
-- [ ] **F7.2** `NicknameView` — doğrulama, sunucu hata mesajlarının gösterimi, "kaydetmeden geç"
-- [ ] **F7.3** `LeaderboardView` + `LeaderboardTable` + `LeaderboardRow` + `RankMedal` — sekmeler, kullanıcı satırının vurgulanması, ilk 10 dışındaki kullanıcının ayrı satırda gösterimi
-- [ ] **F7.4** Boş ve hata durumları
+- [x] **F7.1** `ResultView` — `ScoreCounter` sayma animasyonu, `StatTile` dağılımı, performans başlığı, `estimated_rank` gösterimi
+- [x] **F7.2** `NicknameView` — doğrulama, sunucu hata mesajlarının gösterimi, "kaydetmeden geç"
+- [x] **F7.3** `LeaderboardView` + `LeaderboardTable` + `LeaderboardRow` + `RankMedal` — sekmeler, kullanıcı satırının vurgulanması, ilk 10 dışındaki kullanıcının ayrı satırda gösterimi
+- [x] **F7.4** Boş ve hata durumları
 
 ### Milestone 8 — Cila ve yayın
 
@@ -2406,6 +2409,7 @@ B0 → B1 → B2 → B3 → B4 ─┬─→ F5 → F6 → F7 → P8 → D9
 | D13 | Stil: CSS değişkenleri + scoped CSS (Tailwind yok) | Tasarım sistemi zaten token tabanlı, bağımlılık azalır |
 | D14 | Deployment: DigitalOcean App Platform | §14'te detaylandırıldı |
 | D15 | Süre istatistikleri: `total_elapsed_ms`'de timeout = 5000 ms; `average_elapsed_ms` yalnızca cevaplanan sorulardan (yanlış dahil, timeout hariç) | Beraberlik bozucu adil kalsın: süreyi tüketen hızlı sayılmasın |
+| D16 | Sonraki sorunun `served_at`'i geri bildirim süresi (1200 ms) kadar ileri tarihli yazılır | Geri bildirim ekranı oyuncunun 5 saniyesinden yenmesin. Bedeli: özel bir istemci sonraki soruyu 1,2 sn önce okuyabilir; kabul edildi |
 
 ### 16.2 Açık konular — karar bekliyor
 

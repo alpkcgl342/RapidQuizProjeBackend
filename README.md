@@ -58,6 +58,7 @@ Tamamen Docker ile çalıştırmak için: `docker compose up --build`, ardından
 | `QUIZ_QUESTIONS_PER_SESSION` | `20` | |
 | `QUIZ_TIME_LIMIT_MS` | `5000` | Soru başına süre |
 | `QUIZ_GRACE_PERIOD_MS` | `800` | Ağ toleransı |
+| `QUIZ_FEEDBACK_DELAY_MS` | `1200` | Cevap geri bildirimi süresi; sonraki sorunun süresi bundan sonra başlar |
 | `QUIZ_SESSION_TTL_MINUTES` | `30` | |
 | `QUIZ_BASE_POINTS` / `QUIZ_MAX_SPEED_BONUS` | `100` / `100` | Puanlama |
 | `LEADERBOARD_TOP_N` | `10` | |

@@ -335,7 +335,10 @@ def _submit_locked(
         _finalize(session, now)
     else:
         session.save()
-        next_question = _serve(_current_sq(session), now)
+        # Sonraki soru, istemcide geri bildirim ekranı bittikten sonra görünür; süresi de
+        # o andan başlar. Aksi halde geri bildirim süresi oyuncunun süresinden yenirdi.
+        display_at = now + timedelta(milliseconds=_cfg("FEEDBACK_DELAY_MS"))
+        next_question = _serve(_current_sq(session), display_at)
 
     result = AnswerResult(
         outcome=outcome,
